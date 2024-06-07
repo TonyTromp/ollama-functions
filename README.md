@@ -2,10 +2,12 @@
 
 ## About
 
-This boiler-plate project uses Ollama  natively to invoke python function.
+This boiler-plate project uses Ollama natively to invoke python function, and  similar to LangChain Tools (but using native Ollama API only).
 it does this by leveraging the llm model called: calebfahlgren/natural-functions [calebfahlgren/natural-functions](https://ollama.com/calebfahlgren/natural-functions)
 
 To make it flexible, i have opted for a runtime plugin system, which can be expanded to include your own functionality
+
+Without any modifications you should use the llm model, since not all open llms are good enough to handle function invocation.
 
 ## How to use:
 
