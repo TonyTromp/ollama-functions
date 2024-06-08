@@ -12,7 +12,7 @@ Without any modifications you should use the llm model, since not all open llms 
 ## How to use:
 
 *Create venv and install requirements*
-```
+```bash
 python -m venv venv
 source venv/bin/activate
 
@@ -28,7 +28,7 @@ OLLAMA_MODEL=calebfahlgren/natural-functions:latest
 ```
 
 *Run it* 
-```
+```bash
 source venv/bin/activate
 python app.py
 ```
@@ -39,7 +39,7 @@ The *plugin_loader* is a simple class that loads the plugins from the plugins fo
 
 a function plugin consists of the following file structure
 
-```
+```bash
 |-Plugins
 |-- <YOUR_PLUGIN_FOLDER>
 |---- __init__.py
@@ -47,7 +47,7 @@ a function plugin consists of the following file structure
 ```
 
 The plugin.py inherits from the base class *PluginInterface* and implements the following methods:
-```
+```python
 from plugin_interface import PluginInterface
 
 class nmap_scan_single_ip(PluginInterface):
