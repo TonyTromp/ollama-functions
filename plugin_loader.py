@@ -57,8 +57,10 @@ class FunctionUtils:
     def invoke(plugins: PluginLoader, str_message):
         plugin_name, arguments = FunctionUtils.parse_function_call(str_message)
         if plugin_name is not None:
+            
+            print(f"[+] Invoking plugin: {plugin_name} with arguments: {arguments}")
             plugin = plugins.get_plugin_by_name(plugin_name)
-            plugin.execute(arguments)
+            plugin.execute(eval(arguments))
 
 
 if __name__ == "__main__":

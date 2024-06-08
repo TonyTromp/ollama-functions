@@ -24,7 +24,6 @@ class nmap_scan_single_ip(PluginInterface):
         return self._schema['description'] 
     
     def execute(self, parameters):
-        print( f"Hello from {self.get_plugin_name()}")
-        print(parameters)
+        print( f"[+] execute plugin {self.get_plugin_name()}")
         #  Do your magic here
 

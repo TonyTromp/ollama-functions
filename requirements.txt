@@ -1,5 +1,6 @@
 anyio==4.4.0
 certifi==2024.6.2
+colorama==0.4.6
 dirtyjson==1.0.8
 exceptiongroup==1.2.1
 h11==0.14.0

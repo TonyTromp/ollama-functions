@@ -1,4 +1,4 @@
-![#f03c15](https://www.ollama.com/public/ollama.png)
+![alt text](https://www.ollama.com/public/ollama.png)
 
 # ollama-functions
 
@@ -10,6 +10,8 @@ it does this by leveraging the llm model called: calebfahlgren/natural-functions
 To make it flexible, i have opted for a runtime plugin system, which can be expanded to include your own functionality
 
 Without any modifications you should use the llm model, since not all open llms are good enough to handle function invocation.
+
+I have included two sample plugins: chrome_browser plugin and ebay_search plugin, which both use Chrome and OSX to go to a specific page based on the LLM input. You can modify it easily to accomidate Windows or Linux.
 
 ## How to use:
 
