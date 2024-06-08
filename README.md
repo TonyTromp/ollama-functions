@@ -1,3 +1,5 @@
+![alt text](https://www.ollama.com/public/ollama.png)
+
 # ollama-functions
 
 ## About
