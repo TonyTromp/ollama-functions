@@ -33,6 +33,7 @@ def select_model(client: Client) -> str:
 def send_system_prompt(client: Client, model: str, system_prompt: str) -> str:
     chat_messages.append({'role': 'system', 'content': system_prompt })
     response = client.chat(model=model, messages=chat_messages, stream=False)
+    # note: on system_prompt we do not want to append the response to the chat_messages list
     return response['message']['content']
 
 def send_chat_message(client: Client, model: str, message: str) -> str:

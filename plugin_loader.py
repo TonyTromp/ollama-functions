@@ -10,14 +10,13 @@ class PluginLoader:
         self._load()
 
     def _load(self):
-        print(self.plugin_directory)        
         for subdir in os.listdir(self.plugin_directory):
             subdir_path = os.path.join(self.plugin_directory, subdir)
             if os.path.isdir(subdir_path):
                 init_file = os.path.join(subdir_path, "__init__.py")
                 plugin_file = os.path.join(subdir_path, "plugin.py")
                 if os.path.isfile(init_file) and os.path.isfile(plugin_file):
-                    print("loading plugin...")
+                    print( f"loading plugin: {subdir}", subdir)
                     module_name = f"{subdir}.plugin"
                     spec = importlib.util.spec_from_file_location(module_name, plugin_file)
                     module = importlib.util.module_from_spec(spec)
