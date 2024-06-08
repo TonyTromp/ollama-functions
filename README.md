@@ -25,5 +25,61 @@ pip install -r requirements.txt
 OLLAMA_URL=http://<your_ollama_ip>:11434
 # If no model is specified, you will get a select box
 OLLAMA_MODEL=calebfahlgren/natural-functions:latest
+```
+
+*Run it* 
+```
+source venv/bin/activate
+python app.py
+```
+
+## Extending the functionality
+
+The *plugin_loader* is a simple class that loads the plugins from the plugins folder. In the sample code it looks into the plugin/ folder for any plugin.
+
+a function plugin consists of the following file structure
 
 ```
+|-Plugins
+|-- <YOUR_PLUGIN_FOLDER>
+|---- __init__.py
+|---- plugin.py
+```
+
+The plugin.py inherits from the base class *PluginInterface* and implements the following methods:
+```
+from plugin_interface import PluginInterface
+
+class nmap_scan_single_ip(PluginInterface):
+
+    _schema =     {
+      "name": "nmap_scan",
+      "description": "Perform a nmap network scan on a single ip address.",
+      "parameters": {
+          "properties": {              
+              "ipv4": "ipv4 or CIDR range",
+              "description": "ipv4 or CIDR range address of scan target",
+              "type": "string"
+          }
+      }
+    }
+    
+    def get_schema(self):
+        return self._schema
+    
+    def get_plugin_name(self):
+        return self._schema['name'] 
+    
+    def get_plugin_description(self) -> str:
+        return self._schema['description'] 
+    
+    def execute(self, parameters):
+        print( f"Hello from {self.get_plugin_name()}")
+        print(parameters)
+        #  Do your magic here
+```
+
+In the schema you define how the LLM requires to call the Python method and its arguments you need to passthrough.
+The generic 'execute' method is invoked passing the arguments extracted by the LLM from the schem.
+During load, all schema's files are appended to the schema[] list and passed through as context for the LLM.
+
