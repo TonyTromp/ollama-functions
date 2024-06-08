@@ -1,4 +1,4 @@
-![alt text](https://www.ollama.com/public/ollama.png)
+![#f03c15](https://www.ollama.com/public/ollama.png)
 
 # ollama-functions
 
